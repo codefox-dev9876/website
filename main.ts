@@ -1,2 +1,3 @@
-console.log("why are you here??");
 alert("TESTING TESTING 123!!!");
+let msg = "why are you here";
+console.log(msg);
