@@ -2,16 +2,12 @@ name: Build and Deploy to Pages
 
 on:
   push:
-    branches: ["main"] # Change to "master" if your default branch is named master
+    branches: ["main"]
 
 permissions:
   contents: read
   pages: write
   id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
 
 jobs:
   build_and_deploy:
@@ -28,8 +24,9 @@ jobs:
         with:
           deno-version: v2.x
 
-      - name: Convert TS to JS
-        run: deno run -A npm:esbuild main.ts --bundle --outfile=main.js
+      - name: Build Project
+        # This now calls your task from deno.json!
+        run: deno task build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

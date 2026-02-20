@@ -1,6 +1,9 @@
 {
+  "tasks": {
+    "dev": "deno run -A npm:esbuild main.ts --bundle --outfile=main.js --sourcemap --watch",
+    "build": "deno run -A npm:esbuild main.ts --bundle --outfile=main.js --sourcemap"
+  },
   "imports": {
-    "@std/assert": "jsr:@std/assert@^1.0.0",
-    "chalk": "npm:chalk@5"
+    "@std/assert": "jsr:@std/assert@^1.0.0"
   }
 }
